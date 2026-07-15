@@ -24,7 +24,7 @@ export default function Home() {
           getRated(),
           getUpcoming(),
         ]);
-        // setMovieData((nowPlaying, popular, rated, upcoming));
+        setMovieData((nowPlaying, popular, rated, upcoming));
 
         // setNowData(nowPlaying);
         // setPopData(popular);
@@ -36,10 +36,10 @@ export default function Home() {
     })();
   }, []);
 
-  console.log(`현재 상영 영화: ${nowData}`);
-  console.log(`인기 영화: ${popData}`);
-  console.log(`최고 평점: ${RatedData}`);
-  console.log(`예정 영화: ${UpcomingData}`);
+  // console.log(`현재 상영 영화: ${nowData}`);
+  // console.log(`인기 영화: ${popData}`);
+  // console.log(`최고 평점: ${RatedData}`);
+  // console.log(`예정 영화: ${UpcomingData}`);
 
   // *예외
   // =>try ~ catch
@@ -70,13 +70,15 @@ export default function Home() {
   //   console.log("num 값이 변경될때마다 실행");
   // }, [num]);
   console.log(movieData?.nowPlaying?.respone?.results[0].title);
-  console.log(movieData?.nowPlaying?.respone?.overview[0]);
+  console.log(movieData?.nowPlaying?.respone?.results[0].overview);
 
   return (
     <div className="min-h-screen">
       HOME
       <section
-        style={{ background: `#808080 url() no-repet center / cover` }}
+        style={{
+          background: `#808080 url(https://image.tmdb.org/t/p/original${movieData?.nowPlaying?.respone?.results[0]}) no-repet center / cover`,
+        }}
         className="h-[80hv] px-[20px] lg:px-[80px] xl:px-[200px] relative "
       >
         <div
@@ -86,10 +88,19 @@ export default function Home() {
           <h3 className="text-[30px] lg:text-[50px] xl:text-[70px] font-semibold">
             {movieData?.nowPlaying?.respone?.results[0].title}
           </h3>
-          <p className="text-[14px] xl:text-[18px] opacity-70 max-w-[800px]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.consequuntur
-            obcaecati aliquid cumque veniam. Nesci
+          <p className="text-[14px] xl:text-[18px] opacity-70 max-w-[800px] mt-4 mb-16">
+            {movieData?.nowPlaying?.respone?.results[0].overview.slice(0, 100) +
+              "..."}
+            ;
           </p>
+
+          <link
+            to={`/movie/${movieData?.nowPlaying?.results[0].id}`}
+            className="px-8 py-4
+           bg-red-500 rounded-lg hover:bg-red-700 transition"
+          >
+            More View &rarr;
+          </link>
         </div>
       </section>
     </div>
