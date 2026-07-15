@@ -4,8 +4,7 @@ const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: `Bearer
-eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NzYzYWVlZjc2MTQxMDFmYTNiMGE2OTExNTdmMWM3NSIsIm5iZiI6MTc4NDAwMDEyNS40MzcsInN1YiI6IjZhNTVhZTdkM2Y0NzhjOGEyZWUxMTZhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8UfpfBgcP_2gllvk6mZ6wws81BkCwFioQGHEpTnQIoQ`,
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NzYzYWVlZjc2MTQxMDFmYTNiMGE2OTExNTdmMWM3NSIsIm5iZiI6MTc4NDAwMDEyNS40MzcsInN1YiI6IjZhNTVhZTdkM2Y0NzhjOGEyZWUxMTZhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8UfpfBgcP_2gllvk6mZ6wws81BkCwFioQGHEpTnQIoQ`,
   },
 };
 
