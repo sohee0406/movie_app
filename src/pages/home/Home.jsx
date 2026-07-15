@@ -69,7 +69,8 @@ export default function Home() {
   // useEffect(() => {
   //   console.log("num 값이 변경될때마다 실행");
   // }, [num]);
-  console.log(movieData.nowPlaying.respone.results);
+  console.log(movieData?.nowPlaying?.respone?.results[0].title);
+  console.log(movieData?.nowPlaying?.respone?.overview[0]);
 
   return (
     <div className="min-h-screen">
@@ -83,7 +84,7 @@ export default function Home() {
         lg:left-[80px] xl:left-[200px]"
         >
           <h3 className="text-[30px] lg:text-[50px] xl:text-[70px] font-semibold">
-            INto MOvie title
+            {movieData?.nowPlaying?.respone?.results[0].title}
           </h3>
           <p className="text-[14px] xl:text-[18px] opacity-70 max-w-[800px]">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.consequuntur
