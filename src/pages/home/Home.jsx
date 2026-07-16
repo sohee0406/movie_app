@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
 import {
   getNowPlaying,
   getPopular,
   getRated,
   getUpcoming,
 } from "../../api/movieapi";
-import Section1 from "../../components/Section1";
+import Section1 from "./components/Section1";
 import Loading from "../../components/Loading";
+import "swiper/css";
+import Section2 from "./components/Section2";
+// import Section3 from "../components/Section3";
 
 export default function Home() {
   const [movieData, setMovieData] = useState({});
@@ -58,9 +60,19 @@ export default function Home() {
     );
   }
 
+  const nowPlayingData = movieData?.nowPlaying?.response;
+
   return (
     <div className="min-h-screen">
       <Section1 data={movieData} />
+
+      <div className="px-[20px] lg:px-[80px] xl:px-[200px] py-[100px] xl:py-[150px] font-[700]">
+        <Section2 data={nowPlayingData} />
+      </div>
+
+      {/* <div className="px-[20px] lg:px-[80px] xl:px-[200px] py-[100px] xl:py-[150px] font-[700]">
+        <Section3 data={popularData} />
+      </div> */}
     </div>
   );
 }

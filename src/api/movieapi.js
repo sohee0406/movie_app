@@ -11,16 +11,21 @@ const options = {
 const fetchMovie = async (endpoint) => {
   const url = `${baseUrl}${endpoint}?language=ko-KR&page=1`;
 
-  const response = await fetch(url, options);
-  const data = await response.json();
+  const res = await fetch(url, options);
+  const data = await res.json();
 
-  return data;
+  return {
+    response: {
+      result: data.results,
+      page: data.page,
+      total_pages: data.total_pages,
+      total_results: data.total_results,
+      dates: data.dates,
+    },
+  };
 };
 
 export const getNowPlaying = () => fetchMovie("movie/now_playing");
-
 export const getPopular = () => fetchMovie("movie/popular");
-
 export const getRated = () => fetchMovie("movie/top_rated");
-
 export const getUpcoming = () => fetchMovie("movie/upcoming");
