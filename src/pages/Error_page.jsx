@@ -15,7 +15,7 @@ export default function Error_page() {
         </h2>
 
         <p className="text-gray-400 text-lg md:text-xl mt-10 leading-relaxed">
-          요청하신 페이지가 삭제되었거나 주소가 변경되었을 수 있습니다.
+          요청하신 페이지가 삭제되었거나, 주소가 변경되었을 수 있습니다.
         </p>
 
         <Link
