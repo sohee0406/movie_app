@@ -1,3 +1,4 @@
+import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -9,11 +10,9 @@ export default function Header() {
 
       <ul className="flex gap-[80px] font-bold">
         <li className="hover:text-red-500 transition">
-          <Link to="/">Home</Link>
-        </li>
-
-        <li className="hover:text-red-500 transition">
-          <Link to="/search">Search</Link>
+          <Link to="/search">
+            <Search />
+          </Link>
         </li>
       </ul>
     </header>
