@@ -9,23 +9,18 @@ const options = {
 };
 
 const fetchMovie = async (endpoint) => {
-  const url = `${baseUrl}${endpoint}?language=ko-KR&page=1`;
+  const url = baseUrl + endpoint + "?language=ko-kr&page=1";
 
-  const res = await fetch(url, options);
-  const data = await res.json();
+  const response = await fetch(url, options).then((res) => res.json());
 
-  return {
-    response: {
-      result: data.results,
-      page: data.page,
-      total_pages: data.total_pages,
-      total_results: data.total_results,
-      dates: data.dates,
-    },
-  };
+  return { response };
 };
 
+// 영화 리스트 요청
 export const getNowPlaying = () => fetchMovie("movie/now_playing");
 export const getPopular = () => fetchMovie("movie/popular");
 export const getRated = () => fetchMovie("movie/top_rated");
 export const getUpcoming = () => fetchMovie("movie/upcoming");
+
+// 영화 상세 요청
+export const getDetail = (movie_id) => fetchMovie(`movie/${movie_id}`);

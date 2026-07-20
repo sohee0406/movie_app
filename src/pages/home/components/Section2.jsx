@@ -27,7 +27,7 @@ export default function Section2({ data }) {
           },
         }}
       >
-        {data?.result?.map((movie) => (
+        {data?.results?.map((movie) => (
           <SwiperSlide key={movie.id}>
             <Link to={`/movie/${movie.id}`}>
               <div className="xl:h-[400px]">

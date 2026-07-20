@@ -4,10 +4,10 @@ import { Helmet } from "react-helmet-async";
 
 export default function Section1({ data }) {
   // response.result가 없으면 렌더링하지 않음
-  if (!data?.nowPlaying?.response?.result?.length) return null;
+  if (!data?.nowPlaying?.response?.results?.length) return null;
 
   // 첫 번째 영화
-  const movie = data.nowPlaying.response.result[0];
+  const movie = data.nowPlaying.response.results[0];
 
   return (
     <section
