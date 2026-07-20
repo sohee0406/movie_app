@@ -9,6 +9,7 @@ import Section1 from "./components/Section1";
 import Loading from "../../components/Loading";
 import "swiper/css";
 import Section2 from "./components/Section2";
+import PageTitle from "../../components/PageTitle";
 // import Section3 from "../components/Section3";
 
 export default function Home() {
@@ -64,6 +65,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <PageTitle title={"HOME"}
+
       <Section1 data={movieData} />
 
       <div className="px-[20px] lg:px-[80px] xl:px-[200px] py-[100px] xl:py-[150px] font-[700]">

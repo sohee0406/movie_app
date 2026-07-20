@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ORIGINAL_URL } from "../../../constans/imgBaseUrl";
+import { Helmet } from "react-helmet-async";
 
 export default function Section1({ data }) {
   // response.result가 없으면 렌더링하지 않음
