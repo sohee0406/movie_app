@@ -12,8 +12,6 @@ export default function Movie() {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
 
-  // console.log(id);
-
   useEffect(() => {
     (async () => {
       try {
@@ -30,9 +28,6 @@ export default function Movie() {
   if (loading) {
     return <Loading />;
   }
-
-  console.log(data);
-  // const { data } = data;
 
   return (
     <div className="text-white bg-black min-h-screen">

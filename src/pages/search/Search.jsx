@@ -20,8 +20,6 @@ export default function Search() {
     setData(searchData.results);
   };
 
-  console.log(data);
-
   return (
     <div className="min-h-screen mt-30 px-[20px] lg:px-[80px] xl:px-[200px]">
       <PageTitle title={"검색"} />
