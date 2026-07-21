@@ -5,12 +5,15 @@ import { useEffect, useState } from "react";
 import Loading from "../../components/Loading";
 import { ORIGIAL_URL, W500_URL } from "../../constants/imgBaseUrl";
 import { useParams } from "react-router-dom";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 export default function Movie() {
   const { id } = useParams();
   // =>url의 매개변수 값을 객체로 반환
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
+
+  useScrollTop();
 
   useEffect(() => {
     (async () => {

@@ -9,10 +9,13 @@ import Section_1 from "./components/Section_1";
 import Loading from "../../components/Loading";
 import Section_2 from "./components/Section_2";
 import PageTitle from "../../components/PageTitle";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 export default function Home() {
   const [movieData, setMovieData] = useState({});
   const [loading, setLoading] = useState(true);
+
+  useScrollTop();
 
   useEffect(() => {
     (async () => {
