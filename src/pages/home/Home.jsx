@@ -42,8 +42,6 @@ export default function Home() {
     })();
   }, []);
 
-  // console.log(movieData?.nowPlaying?.response?.results[0]);
-
   // 로딩
   if (loading) {
     return <Loading />;
@@ -53,7 +51,6 @@ export default function Home() {
   const popularData = movieData?.popular;
   const topRatedData = movieData?.topRated;
   const upCommingData = movieData?.upComming;
-  // console.log(movieData.nowPlaying.results[0]);
 
   return (
     <div className="min-h-screen">
