@@ -5,13 +5,9 @@ import {
   getTopRated,
   getUpcoming,
 } from "../../api/movieApi";
-import { Link } from "react-router-dom";
 import Section_1 from "./components/Section_1";
 import Loading from "../../components/Loading";
-import { W500_URL } from "../../constants/imgBaseUrl";
-
 import Section_2 from "./components/Section_2";
-import { Helmet } from "react-helmet-async";
 import PageTitle from "../../components/PageTitle";
 
 export default function Home() {

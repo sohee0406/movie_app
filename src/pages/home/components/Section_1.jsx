@@ -21,7 +21,7 @@ export default function Section_1({ data }) {
         </p>
 
         <Link
-          to={`/movie/${data}`}
+          to={`/movie/${data.id}`}
           className="px-8 py-4 
           bg-red-500 rounded-lg hover:bg-red-700 transition"
         >
