@@ -14,7 +14,7 @@ export default function Header() {
     >
       <div className="text-red-500 font-bold text-lg xl:text-2xl tracking-tight">
         {/* tracking: 자간 조절 */}
-        <Link to={"/"}>PNMOVIE</Link>
+        <Link to={"/"}>MOVIE</Link>
       </div>
 
       <ul className="flex font-bold">
