@@ -12,6 +12,8 @@ html,
 body,
 #root {
   height: 100%;
+  background-color: #000;
+  color: white;
 }
 
 /* 기본 body 설정 */
@@ -19,10 +21,9 @@ body {
   margin: 0;
   line-height: 1.5;
   font-family: "Noto Sans KR", sans-serif;
-  font-optical-sizing: auto;
-  background-color: black;
-  color: white;
+  -webkit-font-smoothing: antialiased;
 }
+
 /* 미디어 기본 설정 */
 img,
 picture,

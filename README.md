@@ -5,15 +5,10 @@
 - [x] css 설정
 - [x] 웹폰트
 - [x] api 설정
-- [x] Header. footer, Loading, 404
-- [ ] Helmet
-- [x] main page ui
-- [ ] detail page ui
-- [ ] search page ui
+- [x] Header, footer, Loading, 404
+- [x] Helmet
+- [x] Main page ui
+- [x] Detail page ui
 - [ ] Page Scroll Event
+- [ ] Search page ui
 - [ ] Deploy
-
----
-
-- [x] css 설치하기
-- [x] React Router Dom 설치하기

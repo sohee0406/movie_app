@@ -1,17 +1,15 @@
-import { ThreeDots } from "react-loader-spinner";
+import { ProgressBar } from "react-loader-spinner";
 
 export default function Loading() {
   return (
     <div className="min-h-screen flex justify-center items-center">
-      <ThreeDots
+      <ProgressBar
         visible={true}
         height="80"
         width="80"
-        color="white"
-        radius="9"
-        ariaLabel="three-dots-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
+        borderColor="#ff0"
+        ariaLabel="progress-bar-loading"
+        barColor={"#f00"}
       />
     </div>
   );

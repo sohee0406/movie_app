@@ -1,23 +1,25 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Link } from "react-router-dom";
-import { W500_URL } from "../../../constans/imgBaseUrl";
+import { W500_URL } from "../../../constants/imgBaseUrl";
 
-export default function Section2({ data }) {
-  console.log(data);
+export default function Section_2({ title, data }) {
   return (
-    <section>
-      <h2 className="text-2xl lg:text-3xl xl:text-4xl mb-8">현재 상영중</h2>
+    <section className="mb-[100px] xl:mb-[150px]">
+      <h2 className=" text-2xl lg:text-3xl xl:text-4xl mb-8 font-[600]">
+        {title}
+      </h2>
 
+      {/* con_wrap */}
       <Swiper
-        spaceBetween={50}
+        spaceBetween={15}
         slidesPerView={5}
         breakpoints={{
           320: {
             spaceBetween: 10,
-            slidesPerView: 2.5,
+            slidesPerView: 2.3,
           },
-          640: {
+          768: {
             spaceBetween: 15,
             slidesPerView: 3.3,
           },
@@ -27,9 +29,9 @@ export default function Section2({ data }) {
           },
         }}
       >
-        {data?.results?.map((movie) => (
-          <SwiperSlide key={movie.id}>
-            <Link to={`/movie/${movie.id}`}>
+        {data.results.map((movie) => (
+          <SwiperSlide>
+            <Link key={movie.id} to={`/movie/${movie.id}`}>
               <div className="xl:h-[400px]">
                 <img
                   className="w-full h-full object-cover"
@@ -37,7 +39,8 @@ export default function Section2({ data }) {
                   alt={movie.title}
                 />
               </div>
-              <h3 className="text-base lg:text-lg mt-[15px] font-[600]">
+
+              <h3 className="text-[14px] xl:text-[18px] mt-[15px] font-[600]">
                 {movie.title}
               </h3>
             </Link>

@@ -1,22 +1,24 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getDetail } from "../../api/movieapi";
-import { W500_URL } from "../../constans/imgBaseUrl";
-import Loading from "../../components/Loading";
+import { Helmet } from "react-helmet-async";
 import PageTitle from "../../components/PageTitle";
+import { getDetail } from "../../api/movieApi";
+import { useEffect, useState } from "react";
+import Loading from "../../components/Loading";
+import { ORIGIAL_URL, W500_URL } from "../../constants/imgBaseUrl";
+import { useParams } from "react-router-dom";
 
 export default function Movie() {
   const { id } = useParams();
-  // =>url 의 매개변수 값을 객체로 반환
-
+  // =>url의 매개변수 값을 객체로 반환
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
+
+  // console.log(id);
 
   useEffect(() => {
     (async () => {
       try {
-        const detail = await getDetail(id);
-        setData(detail.response);
+        const detailData = await getDetail(id);
+        setData(detailData);
       } catch (error) {
         console.log(error);
       } finally {
@@ -25,41 +27,66 @@ export default function Movie() {
     })();
   }, [id]);
 
-  if (loading) return <Loading />;
+  if (loading) {
+    return <Loading />;
+  }
+
   console.log(data);
+  const { response } = data;
 
   return (
-    <div>
-      <PageTitle title={data?.title} />
+    <div className="text-white bg-black min-h-screen">
+      <PageTitle title={response.title} />
 
-      <section className="min-h-screen px-[20px] lg:px-[80px] xl:px-[200px] py-[100px]">
-        <div className="flex gap-[120px] items-center">
-          <img src={`${W500_URL}${data?.poster_path}`} className="w-[500px] " />
+      {/* HERO */}
+      <div
+        className="h-[50vh] md:h-[70vh] bg-cover bg-center relative "
+        style={{
+          background: `url(${ORIGIAL_URL}${response?.backdrop_path}) no-repeat center / cover`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70" />
 
-          <div>
-            <h2 className="text-4xl font-bold mb-6">{data?.title}</h2>
-            <div className="flex gap-10 mb-4">
-              {/* 개봉일 */}
-              <p className=" text-gray-300">{data?.release_date}</p>
-              {/* 상영시간 */}
-              <p className=" text-gray-300">{data?.runtime} 분</p>
-              {/* 평점 */}
-              <p className=" text-gray-300">★ {data?.vote_average}</p>
-            </div>
-            {/* 장르 */}
-            <div className="flex gap-2 m-4">
-              {data?.genres?.map((genre) => (
-                <span key={genre.id} className=" text-gray-300">
-                  ▸{genre.name}
-                </span>
-              ))}
-            </div>
-
-            {/* 줄거리 */}
-            <p className="leading-8 max-w-[600px]">{data?.overview}</p>
-          </div>
+        <div className="absolute bottom-6 md:bottom-10 left-4 md:left-10 z-10">
+          <h1 className="text-2xl md:text-5xl font-bold">{response.title}</h1>
+          <p className="text-sm md:text-lg opacity-80 mt-6 max-w-[700px]">
+            {response.overview}
+          </p>
         </div>
-      </section>
+      </div>
+
+      {/* CONTENT */}
+      <div className="max-w-[1200px] mx-auto px-4 md:px-10 py-10 md:py-16 flex flex-col md:flex-row gap-10">
+        {/* POSTER */}
+        <div className="w-full bg-gray-400 md:w-[300px] shrink-0">
+          <img src={W500_URL + response.poster_path} alt={response.title} />
+        </div>
+
+        {/* INFO */}
+        <div className="flex-1 space-y-6">
+          <div className="flex flex-wrap  gap-4 text-lg xl:text-xl xl:font-semibold opacity-80 ">
+            <span>⭐{Math.round(response.vote_average)}점</span>
+            <span>•</span>
+            <span>100분</span>
+            <span>•</span>
+            <span>{response.release_date}</span>
+          </div>
+
+          {/* 장르 */}
+          <ul className="flex flex-wrap gap-2 mt-12 flex-col translate-x-[30px]">
+            {response.genres.map((genre) => (
+              <li key={genre.id} className="list-disc">
+                {genre.name}
+              </li>
+            ))}
+          </ul>
+
+          {/* 줄거리 */}
+          <p className="text-base md:text-md leading-relaxed opacity-80 mt-12">
+            {response.overview}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
