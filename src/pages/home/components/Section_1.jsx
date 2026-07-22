@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { ORIGIAL_URL } from "../../../constants/imgBaseUrl";
+import { useScrollTop } from "../../../lib/useScrollTop";
 
 export default function Section_1({ data }) {
+  useScrollTop();
   return (
     <section
       style={{

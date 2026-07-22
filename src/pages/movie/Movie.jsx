@@ -47,7 +47,7 @@ export default function Movie() {
 
         <div className="absolute bottom-6 md:bottom-10 left-4 md:left-10 z-10">
           <h1 className="text-2xl md:text-5xl font-bold">{data.title}</h1>
-          <p className="text-sm md:text-lg opacity-80 mt-6 max-w-[700px]">
+          <p className="text-sm md:text-lg opacity-80 mt-6 max-w-[800px]">
             {data.overview}
           </p>
         </div>

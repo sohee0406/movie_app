@@ -2,8 +2,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Link } from "react-router-dom";
 import { W500_URL } from "../../../constants/imgBaseUrl";
+import { useScrollTop } from "../../../lib/useScrollTop";
 
 export default function Section_2({ title, data }) {
+  useScrollTop();
   return (
     <section className="mb-[100px] xl:mb-[150px]">
       <h2 className=" text-2xl lg:text-3xl xl:text-4xl mb-8 font-[600]">

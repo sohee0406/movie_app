@@ -6,7 +6,7 @@ export default function Footer() {
         border-t border-gray-600 flex justify-center items-center
       "
     >
-      &copy; 2026 PNMOVIE. ALL rights revered.
+      &copy; 2026 SOHEEMOVIE. ALL rights revered.
     </footer>
   );
 }
